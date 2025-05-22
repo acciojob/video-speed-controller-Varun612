@@ -1,5 +1,19 @@
 
 /* Your CSS Code here. */
+.progress {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+}
+.progress__filled {
+  background: #f66;
+  height: 100%;     /* Or a fixed value like 10px */
+  width: 0%;        /* JS will update this */
+  transition: width 0.2s;
+}
+
 body{
 	height:100vh;
 }

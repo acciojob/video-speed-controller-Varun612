@@ -1,10 +1,10 @@
-const toggleBtn = document.getElementById('toggle');
-const video = document.getElementById('video');
-const volumeBtn = document.getElementById('volume');
-const playbackSpeedBtn = document.getElementById('playbackSpeed');
-const rewindBtn = document.getElementById('rewind');
-const forwardBtn = document.getElementById('forward');
-const progressFilled = document.querySelector('progress__filled');
+const toggleBtn = document.querySelector('.toggle');
+const video = document.querySelector('.player__video');
+const volumeBtn = document.querySelector('.volume');
+const playbackSpeedBtn = document.querySelector('.playbackSpeed');
+const rewindBtn = document.querySelector('.rewind');
+const forwardBtn = document.querySelector('.forward');
+const progressFilled = document.querySelector('.progress__filled');
 
 
 toggleBtn.addEventListener('click',()=> {
@@ -17,10 +17,10 @@ toggleBtn.addEventListener('click',()=> {
 	}	
 });
 
-volumeBtn.addEventListener('click',()=>{
+volumeBtn.addEventListener('input',()=>{
 	video.volume=volumeBtn.value;
 });
-playbackSpeedBtn.addEventListener('click',()=>{
+playbackSpeedBtn.addEventListener('input',()=>{
 	video.playbackRate=playbackSpeedBtn.value;
 });
 rewindBtn.addEventListener('click',()=>{
@@ -29,7 +29,7 @@ rewindBtn.addEventListener('click',()=>{
 forwardBtn.addEventListener('click',()=>{
 	video.currentTime+=25;
 });
-video.addEventListener('timeUpdate', ()=> {
+video.addEventListener('timeupdate', ()=> {
 	const percent = (video.currentTime/video.duration) *100;
-	progressFilled.style.width=`${percent}`;
+	progressFilled.style.width=`${percent}%`;
 });
